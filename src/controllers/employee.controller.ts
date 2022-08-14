@@ -58,7 +58,6 @@ export const editEmployee = async (req: Request, res: Response) => {
 			res.status(201).json({
 				status: 'SUCCESS',
 				message: 'Record update succesful',
-				data: result,
 			});
 		}
 	} catch (e) {
@@ -81,7 +80,6 @@ export const deleteEmployee = async (req: Request, res: Response) => {
 			res.status(200).json({
 				status: 'SUCCESS',
 				message: 'Record deleted succesfully',
-				data: result,
 			});
 		}
 	} catch (e) {
