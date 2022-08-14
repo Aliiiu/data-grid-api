@@ -12,9 +12,7 @@ export const postEmployee = async (req: Request, res: Response) => {
 		if (result) {
 			return res.send({
 				success: true,
-				message:
-					'User created successfully, please confirm your email to proceed',
-				data: result,
+				message: 'User created successfully',
 			});
 		}
 	} catch (e: any) {

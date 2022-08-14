@@ -16,7 +16,7 @@ export function validator(req: Request, res: Response, next: NextFunction) {
 			error.role = 'enter your role';
 		}
 		if (!country) {
-			error.country = 'Lastname is required';
+			error.country = 'enter your country';
 		}
 		if (Object.keys(error).length > 0) {
 			const errorMessage: string = generateErrorMessage(error);
