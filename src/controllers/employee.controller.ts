@@ -1,22 +1,25 @@
 import { Request, Response } from 'express';
+import { ServerError } from '../lib/error';
 import { Employee } from '../models/employee.model';
 
 export const postEmployee = async (req: Request, res: Response) => {
-	console.log(req.body);
-	const data = new Employee(req.body);
-	const result = await data.save();
+	const { name, gender, role, country } = req.body;
 
-	if (!result) {
-		res.json({
-			status: 'FAILED',
-			message: 'employee registration failed...',
-		});
-	} else {
-		res.json({
-			status: 'SUCCESS',
-			message: 'employee data registered successfully....',
-			data: result,
-		});
+	try {
+		const data = new Employee({ name, gender, role, country });
+		const result = await data.save();
+
+		if (result) {
+			return res.send({
+				success: true,
+				message:
+					'User created successfully, please confirm your email to proceed',
+				data: result,
+			});
+		}
+	} catch (e: any) {
+		console.log(e.message);
+		return res.send(ServerError());
 	}
 };
 

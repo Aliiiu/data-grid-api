@@ -1,4 +1,5 @@
 import express from 'express';
+import { validator } from '../validator/authentication';
 import {
 	deleteEmployee,
 	editEmployee,
@@ -8,7 +9,7 @@ import {
 
 export const router = express.Router();
 
-router.post('/employee', postEmployee);
+router.post('/employee', validator, postEmployee);
 
 router.get('/employee', getEmployee);
 
