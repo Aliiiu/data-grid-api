@@ -5,8 +5,8 @@ the deployed api [here](https://data-grid-api-2.herokuapp.com/employee)
 
 ## Database Setup
 
-Under the utils folder config the uri to that of your desried database. You get
-a notification in the console when you run the backend service.
+Under the utils folder configure the uri to that of your desired database. You
+get a notification in the console when you run the backend service.
 
 ## Available Scripts
 
