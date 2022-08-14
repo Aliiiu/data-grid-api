@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { employee } from '../models/employee';
+import { Employee } from '../models/employee.model';
 
 export const postEmployee = async (req: Request, res: Response) => {
 	console.log(req.body);
-	const data = new employee(req.body);
+	const data = new Employee(req.body);
 	const result = await data.save();
 
 	if (!result) {
@@ -22,7 +22,7 @@ export const postEmployee = async (req: Request, res: Response) => {
 
 export const getEmployee = async (req: Request, res: Response) => {
 	try {
-		const result = await employee.find();
+		const result = await Employee.find();
 		if (!result) {
 			res.status(404).json({
 				status: 'FAILED',
@@ -44,7 +44,7 @@ export const getEmployee = async (req: Request, res: Response) => {
 
 export const editEmployee = async (req: Request, res: Response) => {
 	try {
-		const result = await employee.findByIdAndUpdate(req.params.id, req.body, {
+		const result = await Employee.findByIdAndUpdate(req.params.id, req.body, {
 			new: true,
 		});
 
@@ -69,7 +69,7 @@ export const editEmployee = async (req: Request, res: Response) => {
 
 export const deleteEmployee = async (req: Request, res: Response) => {
 	try {
-		const result = await employee.findByIdAndDelete(req.params.id);
+		const result = await Employee.findByIdAndDelete(req.params.id);
 
 		if (!result) {
 			res.status(404).json({

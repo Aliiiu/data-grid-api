@@ -28,4 +28,4 @@ const employeeSchema = new Schema<Employee>({
 	},
 });
 
-export const employee = model<Employee>('Employee', employeeSchema);
+export const Employee = model<Employee>('Employee', employeeSchema);
